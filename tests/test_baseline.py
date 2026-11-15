@@ -13,6 +13,8 @@ def test_a_new_leader_receives_a_larger_epoch(database):
     with connect() as first:
         assert try_acquire(first, key) == 1
     with connect() as second:
+        with second.transaction():
+            second.execute("SELECT pg_advisory_xact_lock(%s)", (key,))
         assert try_acquire(second, key) == 2
 
 
