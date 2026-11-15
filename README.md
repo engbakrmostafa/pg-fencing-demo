@@ -4,6 +4,10 @@ A small Python 3.12 / PostgreSQL 16 work sample showing why leader election alon
 
 This repository was created as a fresh, synthetic demonstration. It is not a historical production incident or copied client code. The main branch is an intentionally incomplete baseline: it elects one advisory-lock owner and allocates epochs, but does not enforce epochs when storing results. The accompanying pull request adds deterministic regression tests first and the database guard second.
 
+## Evidence
+
+See [the recorded red/green results](docs/evidence.md) on the PR branch.
+
 ## Run
 
 Use a disposable PostgreSQL database; tests create and remove their own randomly named schemas.
